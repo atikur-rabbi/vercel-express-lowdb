@@ -73,7 +73,10 @@ app.get("/clear", function (request, response) {
   response.redirect("/");
 });
 
-// listen for requests :)
-var listener = app.listen(port, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+
+module.exports = app
+
+// // listen for requests :)
+// var listener = app.listen(port, function () {
+//   console.log('Your app is listening on port ' + listener.address().port);
+// });
