@@ -2,7 +2,7 @@ var express = require('express');
 var port = process.env.PORT || 4000;
 var low = require('lowdb')
 var FileSync = require('lowdb/adapters/FileSync')
-var adapter = new FileSync('tmp/db.json')
+var adapter = new FileSync('/tmp/db.json')
 var db = low(adapter)
 var app = express();
 
@@ -14,10 +14,9 @@ db.defaults({ users: [
     ]
   }).write();
 
-// http://expressjs.com/en/starter/static-files.html
+
 app.use(express.static('public'));
 
-// http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
