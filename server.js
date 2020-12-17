@@ -57,24 +57,24 @@ app.get("/reset", function (request, response) {
       {"firstName":"Ahmed","lastName":"Khan"}
   ];
   
-//   users.forEach(function(user){
-//     db.get('users')
-//       .push({ firstName: user.firstName, lastName: user.lastName })
-//       .write()
-//   });
-//   console.log("Default users added");
-//   response.redirect("/");
-// });
+  users.forEach(function(user){
+    db.get('users')
+      .push({ firstName: user.firstName, lastName: user.lastName })
+      .write()
+  });
+  console.log("Default users added");
+  response.redirect("/");
+});
 
-// // removes all entries from the collection
-// app.get("/clear", function (request, response) {
-//   // removes all entries from the collection
-//   db.get('users')
-//   .remove()
-//   .write()
-//   console.log("Database cleared");
-//   response.redirect("/");
-// });
+// removes all entries from the collection
+app.get("/clear", function (request, response) {
+  // removes all entries from the collection
+  db.get('users')
+  .remove()
+  .write()
+  console.log("Database cleared");
+  response.redirect("/");
+});
 
 
 module.exports = app
